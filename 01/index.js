@@ -7,7 +7,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-const { readFileSync, promises: fsPromises } = require("fs");
+import { promises as fsPromises } from "fs";
 const findDigit = (val) => {
     for (let i = 0; i < val.length; i++) {
         const digit = parseInt(val.charAt(i));
@@ -32,7 +32,6 @@ function asyncReadFile(filename) {
         try {
             const contents = yield fsPromises.readFile(filename, "utf-8");
             const arr = contents.split(/\r?\n/);
-            const arr2 = contents.split(/\r?\n/);
             let sum1 = 0;
             let sum2 = 0;
             arr.forEach(val => {
@@ -58,4 +57,4 @@ function asyncReadFile(filename) {
         }
     });
 }
-const content = asyncReadFile("./input.txt");
+asyncReadFile("./input.txt");

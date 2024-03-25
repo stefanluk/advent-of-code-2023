@@ -1,4 +1,4 @@
-const { readFileSync, promises: fsPromises } = require("fs");
+import { promises as fsPromises} from "fs";
 
 const findDigit = (val: string) => {
   for (let i=0; i < val.length; i++) {
@@ -22,10 +22,10 @@ const numberMappings = {
   nine: 'nine9nine',
 }
 
-async function asyncReadFile(filename) {
+async function asyncReadFile(filename: string) {
   try {
     const contents = await fsPromises.readFile(filename, "utf-8");
-    const arr: string[] = contents.split(/\r?\n/);
+    const arr = contents.split(/\r?\n/);
 
     let sum1 = 0;
     let sum2 = 0;
@@ -58,4 +58,6 @@ async function asyncReadFile(filename) {
   }
 }
 
-const content = asyncReadFile("./input.txt");
+asyncReadFile("./input.txt");
+
+export {}
